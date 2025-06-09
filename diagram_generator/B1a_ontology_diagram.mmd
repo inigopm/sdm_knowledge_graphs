@@ -1,0 +1,40 @@
+
+%% Research Publication Ontology – Mermaid Diagram
+classDiagram
+  class Agent
+  class Author
+  class Reviewer
+  Author --|> Agent
+  Reviewer --|> Author
+
+  class Paper
+  class Topic
+  class Review
+
+  class PublicationVenue
+  class Proceeding
+  class JournalVolume
+  Proceeding --|> PublicationVenue
+  JournalVolume --|> PublicationVenue
+
+  class Conference
+  class Workshop
+  class ConferenceEdition
+  Workshop --|> Conference
+
+  class City
+  class TimeSpan
+
+  Author "writes 0..*" --> "0..*" Paper : writes
+  Author "1" --> "1" Paper : correspondingAuthor
+  Paper --> Paper : cites
+  Paper --> PublicationVenue : publishedIn
+  Paper --> Topic : hasKeyword
+
+  Paper --> Review : hasReview
+  Review --> Reviewer : reviewer
+  Reviewer --> Paper : reviewsPaper
+
+  Conference --> ConferenceEdition : hasEdition
+  ConferenceEdition --> City : heldInCity
+  ConferenceEdition --> TimeSpan : heldDuring

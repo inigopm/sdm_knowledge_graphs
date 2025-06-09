@@ -1,0 +1,15 @@
+# requirements.txt
+rdflib>=6.2.0             # ontology and triple creation (B.1 / B.2)
+pandas>=2.1.0             # handling CSVs or tabular data
+python-slugify>=8.0       # to create URI-safe identifiers
+
+pykeen>=1.11              # knowledge graph embeddings (C)
+torch>=2.0                # required by pykeen
+tqdm                      # progress bars (used by pykeen)
+
+umap-learn                # dimensionality reduction (C.4)
+hdbscan                   # clustering (C.4)
+plotly                    # interactive visualisation
+
+# optional
+jupyterlab                # for notebook development
