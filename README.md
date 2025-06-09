@@ -8,3 +8,9 @@ Install all dependencies with:
 
 ```bash
 pip install -r requirements.txt
+
+```
+
+## Visualize the TBOX (B1-c)
+
+Search [this web](https://www.ldf.fi/service/rdf-grapher). and copy-paste the `.ttl` code
