@@ -188,5 +188,5 @@ with open("dataset_csv/edge_volume_journal.csv", newline='', encoding='utf-8') a
         g.add((journal_uri, EX.hasEdition, volume_uri))  
 
 
-g.serialize(destination="B2_research_publications_abox.ttl", format="turtle")
+g.serialize(destination="B2_research_publications_abox.ttl")
 print("ABOX serialised")
