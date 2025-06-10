@@ -1,7 +1,7 @@
 import csv
 from rdflib import Graph, Namespace, URIRef, Literal
 from rdflib.namespace import RDF, RDFS, XSD
-
+import pandas as pd
 
 EX = Namespace("http://example.org/research#")
 
@@ -190,3 +190,33 @@ with open("dataset_csv/edge_volume_journal.csv", newline='', encoding='utf-8') a
 
 g.serialize(destination="B2_research_publications_abox.ttl")
 print("ABOX serialised")
+
+stats = [
+    ["Num. of classes", 13],  # As defined in your TBOX
+    ["Num. of object properties", 12],  # As defined in your TBOX
+    ["Num. of datatype properties", 4],  # As defined in your TBOX
+    ["Num. of authors", len(set(g.subjects(RDF.type, EX.Author)))],
+    ["Num. of papers", len(set(g.subjects(RDF.type, EX.Paper)))],
+    ["Num. of conferences", len(set(g.subjects(RDF.type, EX.Conference)))],
+    ["Num. of conference editions", len(set(g.subjects(RDF.type, EX.ConferenceEdition)))],
+    ["Num. of journals", len(set(g.subjects(RDF.type, EX.PublicationVenue)))],
+    ["Num. of journal volumes", len(set(g.subjects(RDF.type, EX.JournalVolume)))],
+    ["Num. of cities", len(set(g.subjects(RDF.type, EX.City)))],
+    ["Num. of topics", len(set(g.subjects(RDF.type, EX.Topic)))],
+    ["Num. of reviews", len(set(g.subjects(RDF.type, EX.Review)))],
+    ["Total Num. of triples", len(g)],
+    ["Num. of 'writes' triples", len(list(g.triples((None, EX.writes, None))))],
+    ["Num. of 'correspondingAuthor' triples", len(list(g.triples((None, EX.correspondingAuthor, None))))],
+    ["Num. of 'hasEdition' triples", len(list(g.triples((None, EX.hasEdition, None))))],
+    ["Num. of 'publishedIn' triples", len(list(g.triples((None, EX.publishedIn, None))))],
+    ["Num. of 'hasKeyword' triples", len(list(g.triples((None, EX.hasKeyword, None))))],
+    ["Num. of 'cites' triples", len(list(g.triples((None, EX.cites, None))))],
+    ["Num. of 'heldInCity' triples", len(list(g.triples((None, EX.heldInCity, None))))],
+    ["Num. of 'heldDuring' triples", len(list(g.triples((None, EX.heldDuring, None))))],
+    ["Num. of 'hasReview' triples", len(list(g.triples((None, EX.hasReview, None))))],
+    ["Num. of 'reviewer' triples", len(list(g.triples((None, EX.reviewer, None))))],
+    ["Num. of 'reviewsPaper' triples", len(list(g.triples((None, EX.reviewsPaper, None))))],
+]
+
+stats_df = pd.DataFrame(stats, columns=["Statistic", "Value"])
+stats_df.to_csv("B2_4_abox_stats.csv", index=False)
