@@ -13,4 +13,4 @@ pip install -r requirements.txt
 
 ## Visualize the TBOX (B1-c)
 
-Search [this web](https://www.ldf.fi/service/rdf-grapher). and copy-paste the `.ttl` code
+Enter to [this web](https://www.ldf.fi/service/rdf-grapher) and copy-paste the `.ttl` code
