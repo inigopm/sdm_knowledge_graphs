@@ -42,6 +42,8 @@ with open("dataset_csv/Node_paper.csv", newline='', encoding='utf-8') as papers:
         year_str = row['year'].strip()
         if year_str.isdigit():
             g.add((paper_uri, EX.year, Literal(year_str, datatype=XSD.gYear)))
+        if 'abstract' in row and row['abstract'].strip():
+            g.add((paper_uri, EX.abstract, Literal(row['abstract'], datatype=XSD.string)))
 
 #conferences
 with open("dataset_csv/Node_conference.csv", newline='', encoding='utf-8') as conferences:
@@ -73,7 +75,9 @@ with open("dataset_csv/Node_edition.csv", newline='', encoding='utf-8') as editi
                 end_day = 28
             g.add((timespan_uri, EX.startDate, Literal(f"{year_str}-{start_month:02d}-{start_day:02d}", datatype=XSD.date)))
             g.add((timespan_uri, EX.endDate, Literal(f"{year_str}-{start_month:02d}-{end_day:02d}", datatype=XSD.date)))
-
+        proceeding_uri = uri("proceeding", clean_uri_string(row['edition_id']))
+        g.add((proceeding_uri, RDF.type, EX.Proceeding))
+        g.add((edition_uri, EX.proceedingOf, proceeding_uri))
 
 #journals
 with open("dataset_csv/Node_journals.csv", newline='', encoding='utf-8') as journals:
@@ -94,7 +98,8 @@ with open("dataset_csv/Node_volume.csv", newline='', encoding='utf-8') as volume
             g.add((volume_uri, EX.year, Literal(year_str, datatype=XSD.gYear)))
         if 'journal_name' in row and row['journal_name'].strip():
             journal_uri = uri("journal", row['journal_name'].replace(" ", "_"))
-            g.add((journal_uri, EX.hasEdition, volume_uri))
+            g.add((journal_uri, EX.hasVolume, volume_uri))
+            g.add((volume_uri, EX.volumeOf, journal_uri))
 
 #keywords
 with open("dataset_csv/Node_keywords.csv", newline='', encoding='utf-8') as keywords:
@@ -161,6 +166,8 @@ with open("dataset_csv/edge_paper_edition.csv", newline='', encoding='utf-8') as
         paper_uri = uri("paper", row['id_paper'])
         edition_uri = uri("edition", clean_uri_string(row['edition_id']))
         g.add((paper_uri, EX.publishedIn, edition_uri))
+        proceeding_uri = uri("proceeding", clean_uri_string(row['edition_id']))
+        g.add((paper_uri, EX.publishedIn, proceeding_uri))
 
 #paper - keywords
 with open("dataset_csv/edge_paper_keywords.csv", newline='', encoding='utf-8') as paper_keywords:
@@ -192,7 +199,8 @@ with open("dataset_csv/edge_volume_journal.csv", newline='', encoding='utf-8') a
     for row in reader:
         volume_uri = uri("volume", row['volume'])
         journal_uri = uri("journal", clean_uri_string(row['journal_name']))
-        g.add((journal_uri, EX.hasEdition, volume_uri))  
+        g.add((journal_uri, EX.hasVolume, volume_uri))
+        g.add((volume_uri, EX.volumeOf, journal_uri))
 
 
 g.serialize(destination="B2_research_publications_abox.ttl")
