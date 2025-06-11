@@ -46,13 +46,22 @@ objprop(EX.heldDuring,          EX.ConferenceEdition,EX.TimeSpan)
 objprop(EX.hasReview,           EX.Paper,            EX.Review)
 objprop(EX.reviewer,            EX.Review,           EX.Reviewer)
 objprop(EX.reviewsPaper,        EX.Reviewer,         EX.Paper)
-# inverse convenience (not used for RDFS reasoning but handy later)
 g.add((EX.reviewsPaper, RDFS.subPropertyOf, EX.hasReview))
 
-# datatype props (no domains for brevity)
-for p in ["title","year"]:
-    g.add((EX[p], RDF.type, RDF.Property))
-    g.add((EX[p], RDFS.range, XSD.string if p=="title" else XSD.gYear if p=="year" else XSD.date))
+# datatype properties
+g.add((EX.title, RDF.type, RDF.Property))
+g.add((EX.title, RDFS.range, XSD.string))
+
+g.add((EX.year, RDF.type, RDF.Property))
+g.add((EX.year, RDFS.range, XSD.gYear))
+
+g.add((EX.startDate, RDF.type, RDF.Property))
+g.add((EX.startDate, RDFS.domain, EX.TimeSpan))
+g.add((EX.startDate, RDFS.range, XSD.date))
+
+g.add((EX.endDate, RDF.type, RDF.Property))
+g.add((EX.endDate, RDFS.domain, EX.TimeSpan))
+g.add((EX.endDate, RDFS.range, XSD.date))
 
 g.serialize("research_publications_tbox.ttl")
 print("TBOX serialised.")
