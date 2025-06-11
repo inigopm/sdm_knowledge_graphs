@@ -45,9 +45,6 @@
     rdfs:range :Paper ;
     rdfs:subPropertyOf :writes .
 
-:endDate a rdf:Property ;
-    rdfs:range xsd:date .
-
 :hasEdition a rdf:Property ;
     rdfs:domain :Conference ;
     rdfs:range :ConferenceEdition .
@@ -76,9 +73,6 @@
     rdfs:domain :Reviewer ;
     rdfs:range :Paper ;
     rdfs:subPropertyOf :hasReview .
-
-:startDate a rdf:Property ;
-    rdfs:range xsd:date .
 
 :title a rdf:Property ;
     rdfs:range xsd:string .
