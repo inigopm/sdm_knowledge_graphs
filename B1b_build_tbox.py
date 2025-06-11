@@ -50,7 +50,7 @@ objprop(EX.reviewsPaper,        EX.Reviewer,         EX.Paper)
 g.add((EX.reviewsPaper, RDFS.subPropertyOf, EX.hasReview))
 
 # datatype props (no domains for brevity)
-for p in ["title","year","startDate","endDate"]:
+for p in ["title","year"]:
     g.add((EX[p], RDF.type, RDF.Property))
     g.add((EX[p], RDFS.range, XSD.string if p=="title" else XSD.gYear if p=="year" else XSD.date))
 
