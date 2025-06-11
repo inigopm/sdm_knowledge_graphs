@@ -2,6 +2,7 @@ import csv
 from rdflib import Graph, Namespace, URIRef, Literal
 from rdflib.namespace import RDF, RDFS, XSD
 import pandas as pd
+import random
 
 EX = Namespace("http://example.org/research#")
 
@@ -60,15 +61,20 @@ with open("dataset_csv/Node_edition.csv", newline='', encoding='utf-8') as editi
         if year_str.isdigit():
             g.add((edition_uri, EX.year, Literal(year_str, datatype=XSD.gYear)))
         g.add((edition_uri, EX.heldInCity, uri("city", row['city'].replace(" ", "_"))))
-        
-        #timespann
         timespan_uri = uri("timespan", clean_uri_string(row['edition_id']))
         g.add((timespan_uri, RDF.type, EX.TimeSpan))
         g.add((edition_uri, EX.heldDuring, timespan_uri))
-        if 'start_date' in row and row['start_date'].strip():
-            g.add((timespan_uri, EX.startDate, Literal(row['start_date'].strip(), datatype=XSD.date)))
-        if 'end_date' in row and row['end_date'].strip():
-            g.add((timespan_uri, EX.endDate, Literal(row['end_date'].strip(), datatype=XSD.date)))
+        if year_str.isdigit():
+            start_month = random.randint(1, 12)
+            start_day = random.randint(1, 21)
+            duration = random.randint(1, 7)# no more than a week
+            end_day = start_day + duration
+            if end_day > 28:
+                end_day = 28
+            g.add((timespan_uri, EX.startDate, Literal(f"{year_str}-{start_month:02d}-{start_day:02d}", datatype=XSD.date)))
+            g.add((timespan_uri, EX.endDate, Literal(f"{year_str}-{start_month:02d}-{end_day:02d}", datatype=XSD.date)))
+
+
 #journals
 with open("dataset_csv/Node_journals.csv", newline='', encoding='utf-8') as journals:
     reader = csv.DictReader(journals)
@@ -117,6 +123,7 @@ with open("dataset_csv/Edge_paper_author_wrote.csv", newline='', encoding='utf-8
         author_uri = uri("author", row['author_id'])
         paper_uri = uri("paper", row['id_paper'])
         g.add((author_uri, EX.writes, paper_uri))
+        g.add((author_uri, EX.correspondingAuthor, paper_uri))
 
 #author-paper co-wrote
 with open("dataset_csv/Edge_paper_author_cowrote.csv", newline='', encoding='utf-8') as cowrites:
