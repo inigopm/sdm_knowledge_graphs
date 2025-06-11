@@ -14,6 +14,8 @@
 
 :ConferenceEdition a rdfs:Class .
 
+:Journal a rdfs:Class .
+
 :JournalVolume a rdfs:Class ;
     rdfs:subClassOf :PublicationVenue .
 
@@ -36,6 +38,10 @@
 :Workshop a rdfs:Class ;
     rdfs:subClassOf :Conference .
 
+:abstract a rdf:Property ;
+    rdfs:domain :Paper ;
+    rdfs:range xsd:string .
+
 :cites a rdf:Property ;
     rdfs:domain :Paper ;
     rdfs:range :Paper .
@@ -57,6 +63,10 @@
     rdfs:domain :Paper ;
     rdfs:range :Topic .
 
+:hasVolume a rdf:Property ;
+    rdfs:domain :Journal ;
+    rdfs:range :JournalVolume .
+
 :heldDuring a rdf:Property ;
     rdfs:domain :ConferenceEdition ;
     rdfs:range :TimeSpan .
@@ -64,6 +74,10 @@
 :heldInCity a rdf:Property ;
     rdfs:domain :ConferenceEdition ;
     rdfs:range :City .
+
+:proceedingOf a rdf:Property ;
+    rdfs:domain :ConferenceEdition ;
+    rdfs:range :Proceeding .
 
 :publishedIn a rdf:Property ;
     rdfs:domain :Paper ;
@@ -84,6 +98,10 @@
 
 :title a rdf:Property ;
     rdfs:range xsd:string .
+
+:volumeOf a rdf:Property ;
+    rdfs:domain :JournalVolume ;
+    rdfs:range :Journal .
 
 :year a rdf:Property ;
     rdfs:range xsd:gYear .
