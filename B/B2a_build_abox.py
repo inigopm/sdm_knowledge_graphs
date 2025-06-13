@@ -25,7 +25,7 @@ def clean_uri_string(s):
     return s
 
 #authors
-with open("dataset_csv/Node_author.csv", newline='', encoding='utf-8') as authors:
+with open("B/dataset_csv/Node_author.csv", newline='', encoding='utf-8') as authors:
     reader = csv.DictReader(authors)
     for row in reader:
         author_uri = uri("author", row['author_id'])
@@ -33,7 +33,7 @@ with open("dataset_csv/Node_author.csv", newline='', encoding='utf-8') as author
         g.add((author_uri, EX.title, Literal(row['author_name'], datatype=XSD.string)))
 
 #papers
-with open("dataset_csv/Node_paper.csv", newline='', encoding='utf-8') as papers:
+with open("B/dataset_csv/Node_paper.csv", newline='', encoding='utf-8') as papers:
     reader = csv.DictReader(papers)
     for row in reader:
         paper_uri = uri("paper", row['id_paper'])
@@ -46,7 +46,7 @@ with open("dataset_csv/Node_paper.csv", newline='', encoding='utf-8') as papers:
             g.add((paper_uri, EX.abstract, Literal(row['abstract'], datatype=XSD.string)))
 
 #conferences
-with open("dataset_csv/Node_conference.csv", newline='', encoding='utf-8') as conferences:
+with open("B/dataset_csv/Node_conference.csv", newline='', encoding='utf-8') as conferences:
     reader = csv.DictReader(conferences)
     for row in reader:
         conf_uri = uri("conference", row['conference_name'].replace(" ", "_"))
@@ -54,7 +54,7 @@ with open("dataset_csv/Node_conference.csv", newline='', encoding='utf-8') as co
         g.add((conf_uri, EX.title, Literal(row['conference_name'], datatype=XSD.string)))
 
 #editions
-with open("dataset_csv/Node_edition.csv", newline='', encoding='utf-8') as editions:
+with open("B/dataset_csv/Node_edition.csv", newline='', encoding='utf-8') as editions:
     reader = csv.DictReader(editions)
     for row in reader:
         edition_uri = uri("edition", clean_uri_string(row['edition_id']))
@@ -80,7 +80,7 @@ with open("dataset_csv/Node_edition.csv", newline='', encoding='utf-8') as editi
         g.add((edition_uri, EX.proceedingOf, proceeding_uri))
 
 #journals
-with open("dataset_csv/Node_journals.csv", newline='', encoding='utf-8') as journals:
+with open("B/dataset_csv/Node_journals.csv", newline='', encoding='utf-8') as journals:
     reader = csv.DictReader(journals)
     for row in reader:
         journal_uri =uri("journal", clean_uri_string(row['journal_name']))
@@ -88,7 +88,7 @@ with open("dataset_csv/Node_journals.csv", newline='', encoding='utf-8') as jour
         g.add((journal_uri, EX.title, Literal(row['journal_name'], datatype=XSD.string)))
 
 #volumes
-with open("dataset_csv/Node_volume.csv", newline='', encoding='utf-8') as volumes:
+with open("B/dataset_csv/Node_volume.csv", newline='', encoding='utf-8') as volumes:
     reader = csv.DictReader(volumes)
     for row in reader:
         volume_uri = uri("volume", row['volume'])
@@ -102,7 +102,7 @@ with open("dataset_csv/Node_volume.csv", newline='', encoding='utf-8') as volume
             g.add((volume_uri, EX.volumeOf, journal_uri))
 
 #keywords
-with open("dataset_csv/Node_keywords.csv", newline='', encoding='utf-8') as keywords:
+with open("B/dataset_csv/Node_keywords.csv", newline='', encoding='utf-8') as keywords:
     reader = csv.DictReader(keywords)
     for row in reader:
         topic_uri = uri("topic", row['keyword'].replace(" ", "_"))
@@ -111,7 +111,7 @@ with open("dataset_csv/Node_keywords.csv", newline='', encoding='utf-8') as keyw
 
 #cities?
 cities = set()
-with open("dataset_csv/Node_edition.csv", newline='', encoding='utf-8') as cities_files:
+with open("B/dataset_csv/Node_edition.csv", newline='', encoding='utf-8') as cities_files:
     reader = csv.DictReader(cities_files)
     for row in reader:
         city_name = row['city'].replace(" ", "_")
@@ -122,7 +122,7 @@ with open("dataset_csv/Node_edition.csv", newline='', encoding='utf-8') as citie
             g.add((city_uri, EX.title, Literal(row['city'], datatype=XSD.string)))
 
 #author-paper wrote
-with open("dataset_csv/Edge_paper_author_wrote.csv", newline='', encoding='utf-8') as writes:
+with open("B/dataset_csv/Edge_paper_author_wrote.csv", newline='', encoding='utf-8') as writes:
     reader = csv.DictReader(writes)
     for row in reader:
         author_uri = uri("author", row['author_id'])
@@ -131,7 +131,7 @@ with open("dataset_csv/Edge_paper_author_wrote.csv", newline='', encoding='utf-8
         g.add((author_uri, EX.correspondingAuthor, paper_uri))
 
 #author-paper co-wrote
-with open("dataset_csv/Edge_paper_author_cowrote.csv", newline='', encoding='utf-8') as cowrites:
+with open("B/dataset_csv/Edge_paper_author_cowrote.csv", newline='', encoding='utf-8') as cowrites:
     reader = csv.DictReader(cowrites)
     for row in reader:
         author_uri = uri("author", row['author_id'])
@@ -139,7 +139,7 @@ with open("dataset_csv/Edge_paper_author_cowrote.csv", newline='', encoding='utf
         g.add((author_uri, EX.writes, paper_uri))
 
 #author-paper reviews
-with open("dataset_csv/Edge_paper_author_reviews.csv", newline='', encoding='utf-8') as reviews:
+with open("B/dataset_csv/Edge_paper_author_reviews.csv", newline='', encoding='utf-8') as reviews:
     reader = csv.DictReader(reviews)
     for row in reader:
         reviewer_uri = uri("author", row['author_id'])
@@ -152,7 +152,7 @@ with open("dataset_csv/Edge_paper_author_reviews.csv", newline='', encoding='utf
         g.add((reviewer_uri, RDF.type, EX.Reviewer))  
 
 #edition - conference
-with open("dataset_csv/edge_edition_conference.csv", newline='', encoding='utf-8') as edition_conference:
+with open("B/dataset_csv/edge_edition_conference.csv", newline='', encoding='utf-8') as edition_conference:
     reader = csv.DictReader(edition_conference)
     for row in reader:
         edition_uri = uri("edition", clean_uri_string(row['edition_id']))
@@ -160,7 +160,7 @@ with open("dataset_csv/edge_edition_conference.csv", newline='', encoding='utf-8
         g.add((conference_uri, EX.hasEdition, edition_uri))
 
 #paper - edition
-with open("dataset_csv/edge_paper_edition.csv", newline='', encoding='utf-8') as paper_edition:
+with open("B/dataset_csv/edge_paper_edition.csv", newline='', encoding='utf-8') as paper_edition:
     reader = csv.DictReader(paper_edition)
     for row in reader:
         paper_uri = uri("paper", row['id_paper'])
@@ -170,7 +170,7 @@ with open("dataset_csv/edge_paper_edition.csv", newline='', encoding='utf-8') as
         g.add((paper_uri, EX.publishedIn, proceeding_uri))
 
 #paper - keywords
-with open("dataset_csv/edge_paper_keywords.csv", newline='', encoding='utf-8') as paper_keywords:
+with open("B/dataset_csv/edge_paper_keywords.csv", newline='', encoding='utf-8') as paper_keywords:
     reader = csv.DictReader(paper_keywords)
     for row in reader:
         paper_uri = uri("paper", row['id_paper'])
@@ -178,7 +178,7 @@ with open("dataset_csv/edge_paper_keywords.csv", newline='', encoding='utf-8') a
         g.add((paper_uri, EX.hasKeyword, topic_uri))
 
 #paper cites paper
-with open("dataset_csv/edge_paper_paper.csv", newline='', encoding='utf-8') as cites:
+with open("B/dataset_csv/edge_paper_paper.csv", newline='', encoding='utf-8') as cites:
     reader = csv.DictReader(cites)
     for row in reader:
         paper_uri_1 = uri("paper", row['id_paper'])
@@ -186,7 +186,7 @@ with open("dataset_csv/edge_paper_paper.csv", newline='', encoding='utf-8') as c
         g.add((paper_uri_1, EX.cites, paper_uri_2))
 
 #paper - volume
-with open("dataset_csv/edge_paper_volume.csv", newline='', encoding='utf-8') as paper_volume:
+with open("B/dataset_csv/edge_paper_volume.csv", newline='', encoding='utf-8') as paper_volume:
     reader = csv.DictReader(paper_volume)
     for row in reader:
         paper_uri = uri("paper", row['id_paper'])
@@ -194,7 +194,7 @@ with open("dataset_csv/edge_paper_volume.csv", newline='', encoding='utf-8') as 
         g.add((paper_uri, EX.publishedIn, volume_uri))
 
 #volume - journal
-with open("dataset_csv/edge_volume_journal.csv", newline='', encoding='utf-8') as volume_journal_file:
+with open("B/dataset_csv/edge_volume_journal.csv", newline='', encoding='utf-8') as volume_journal_file:
     reader = csv.DictReader(volume_journal_file)
     for row in reader:
         volume_uri = uri("volume", row['volume'])
@@ -203,7 +203,7 @@ with open("dataset_csv/edge_volume_journal.csv", newline='', encoding='utf-8') a
         g.add((volume_uri, EX.volumeOf, journal_uri))
 
 
-g.serialize(destination="B2_research_publications_abox.ttl")
+g.serialize(destination="B/B2_research_publications_abox.ttl")
 print("ABOX serialised")
 
 stats = [
@@ -234,4 +234,4 @@ stats = [
 ]
 
 stats_df = pd.DataFrame(stats, columns=["Statistic", "Value"])
-stats_df.to_csv("B2_4_abox_stats.csv", index=False)
+stats_df.to_csv("B/B2_4_abox_stats.csv", index=False)

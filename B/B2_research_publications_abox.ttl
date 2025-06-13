@@ -47789,122 +47789,122 @@
     :reviewsPaper :paper201742724 .
 
 :timespan a :TimeSpan ;
-    :endDate "2003-01-23"^^xsd:date,
-        "2006-04-22"^^xsd:date,
-        "2012-02-14"^^xsd:date,
-        "2013-03-13"^^xsd:date ;
-    :startDate "2003-01-17"^^xsd:date,
-        "2006-04-18"^^xsd:date,
-        "2012-02-11"^^xsd:date,
-        "2013-03-10"^^xsd:date .
+    :endDate "2003-05-11"^^xsd:date,
+        "2006-06-09"^^xsd:date,
+        "2012-09-23"^^xsd:date,
+        "2013-05-26"^^xsd:date ;
+    :startDate "2003-05-06"^^xsd:date,
+        "2006-06-06"^^xsd:date,
+        "2012-09-17"^^xsd:date,
+        "2013-05-20"^^xsd:date .
 
 :timespan1990_winter_simulation_conference_proceedings a :TimeSpan ;
-    :endDate "1990-01-18"^^xsd:date ;
-    :startDate "1990-01-14"^^xsd:date .
+    :endDate "1990-12-25"^^xsd:date ;
+    :startDate "1990-12-21"^^xsd:date .
 
 :timespan2003_ieee_international_conference_on_consumer_electronics_2003_icce a :TimeSpan ;
-    :endDate "2003-12-12"^^xsd:date ;
-    :startDate "2003-12-11"^^xsd:date .
+    :endDate "2003-08-26"^^xsd:date ;
+    :startDate "2003-08-20"^^xsd:date .
 
 :timespan2006_1st_ieee_conference_on_industrial_electronics_and_applications a :TimeSpan ;
-    :endDate "2006-05-21"^^xsd:date ;
-    :startDate "2006-05-15"^^xsd:date .
+    :endDate "2006-01-08"^^xsd:date ;
+    :startDate "2006-01-07"^^xsd:date .
 
 :timespan2008_conference_on_precision_electromagnetic_measurements_digest a :TimeSpan ;
-    :endDate "2008-01-15"^^xsd:date ;
-    :startDate "2008-01-12"^^xsd:date .
+    :endDate "2008-02-05"^^xsd:date ;
+    :startDate "2008-02-01"^^xsd:date .
 
 :timespan2008_panhellenic_conference_on_informatics a :TimeSpan ;
-    :endDate "2008-04-19"^^xsd:date ;
-    :startDate "2008-04-16"^^xsd:date .
+    :endDate "2008-08-09"^^xsd:date ;
+    :startDate "2008-08-05"^^xsd:date .
 
 :timespan2011_5th_international_conference_on_bioinformatics_and_biomedical_engineering a :TimeSpan ;
-    :endDate "2011-02-14"^^xsd:date ;
-    :startDate "2011-02-10"^^xsd:date .
+    :endDate "2011-03-22"^^xsd:date ;
+    :startDate "2011-03-17"^^xsd:date .
 
 :timespan2012_ieee_75th_vehicular_technology_conference_vtc_spring a :TimeSpan ;
-    :endDate "2012-07-15"^^xsd:date ;
-    :startDate "2012-07-11"^^xsd:date .
+    :endDate "2012-09-14"^^xsd:date ;
+    :startDate "2012-09-07"^^xsd:date .
 
 :timespan2013_fifth_international_conference_on_communication_systems_and_networks_comsnets a :TimeSpan ;
-    :endDate "2013-08-13"^^xsd:date ;
-    :startDate "2013-08-11"^^xsd:date .
+    :endDate "2013-01-12"^^xsd:date ;
+    :startDate "2013-01-07"^^xsd:date .
 
 :timespan2015_ieee_international_conference_on_advanced_intelligent_mechatronics_aim a :TimeSpan ;
-    :endDate "2015-02-20"^^xsd:date ;
-    :startDate "2015-02-14"^^xsd:date .
+    :endDate "2015-06-20"^^xsd:date ;
+    :startDate "2015-06-18"^^xsd:date .
 
 :timespan2016_4th_international_conference_on_robotics_and_mechatronics_icrom a :TimeSpan ;
-    :endDate "2016-12-07"^^xsd:date ;
-    :startDate "2016-12-06"^^xsd:date .
+    :endDate "2016-01-19"^^xsd:date ;
+    :startDate "2016-01-15"^^xsd:date .
 
 :timespan2016_ieee_international_conference_on_consumer_electronics_icce a :TimeSpan ;
-    :endDate "2016-02-14"^^xsd:date ;
-    :startDate "2016-02-09"^^xsd:date .
+    :endDate "2016-10-19"^^xsd:date ;
+    :startDate "2016-10-17"^^xsd:date .
 
 :timespan2017_ieee_conference_on_control_technology_and_applications_ccta a :TimeSpan ;
-    :endDate "2017-01-06"^^xsd:date ;
-    :startDate "2017-01-05"^^xsd:date .
+    :endDate "2017-07-14"^^xsd:date ;
+    :startDate "2017-07-09"^^xsd:date .
 
 :timespan2018_21st_international_conference_on_intelligent_transportation_systems_itsc a :TimeSpan ;
-    :endDate "2018-07-20"^^xsd:date ;
-    :startDate "2018-07-18"^^xsd:date .
+    :endDate "2018-07-11"^^xsd:date ;
+    :startDate "2018-07-10"^^xsd:date .
 
 :timespan2018_ieee_global_communications_conference_globecom a :TimeSpan ;
-    :endDate "2018-04-04"^^xsd:date ;
-    :startDate "2018-04-03"^^xsd:date .
+    :endDate "2018-04-26"^^xsd:date ;
+    :startDate "2018-04-19"^^xsd:date .
 
 :timespan2020_ieee_15th_international_conference_on_advanced_trends_in_radioelectronics_telecommunications_and_computer_engineering_tcset a :TimeSpan ;
-    :endDate "2020-04-10"^^xsd:date ;
-    :startDate "2020-04-06"^^xsd:date .
+    :endDate "2020-11-09"^^xsd:date ;
+    :startDate "2020-11-05"^^xsd:date .
 
 :timespan2021_asia_pacific_signal_and_information_processing_association_annual_summit_and_conference_apsipa_asc a :TimeSpan ;
-    :endDate "2021-11-17"^^xsd:date ;
-    :startDate "2021-11-15"^^xsd:date .
+    :endDate "2021-08-12"^^xsd:date ;
+    :startDate "2021-08-09"^^xsd:date .
 
 :timespan2021_ieee_15th_international_conference_on_electronic_measurement_instruments_icemi a :TimeSpan ;
-    :endDate "2021-01-18"^^xsd:date ;
-    :startDate "2021-01-14"^^xsd:date .
+    :endDate "2021-12-06"^^xsd:date ;
+    :startDate "2021-12-03"^^xsd:date .
 
 :timespan2021_ieee_conference_of_russian_young_researchers_in_electrical_and_electronic_engineering_elconrus a :TimeSpan ;
-    :endDate "2021-09-02"^^xsd:date ;
-    :startDate "2021-09-01"^^xsd:date .
+    :endDate "2021-04-21"^^xsd:date ;
+    :startDate "2021-04-14"^^xsd:date .
 
 :timespan2024_ieee_20th_international_conference_on_intelligent_computer_communication_and_processing_iccp a :TimeSpan ;
-    :endDate "2024-08-07"^^xsd:date ;
-    :startDate "2024-08-03"^^xsd:date .
+    :endDate "2024-10-10"^^xsd:date ;
+    :startDate "2024-10-08"^^xsd:date .
 
 :timespan25th_international_conference_on_infrared_and_millimeter_waves_cat_no_00ex442 a :TimeSpan ;
-    :endDate "2000-10-27"^^xsd:date ;
-    :startDate "2000-10-20"^^xsd:date .
+    :endDate "2000-01-14"^^xsd:date ;
+    :startDate "2000-01-08"^^xsd:date .
 
 :timespan30th_annual_frontiers_in_education_conference_building_on_a_century_of_progress_in_engineering_education_conference_proceedings_ieee_cat_no_00ch37135 a :TimeSpan ;
-    :endDate "2000-05-20"^^xsd:date ;
-    :startDate "2000-05-13"^^xsd:date .
+    :endDate "2000-04-14"^^xsd:date ;
+    :startDate "2000-04-13"^^xsd:date .
 
 :timespanepj_web_of_conferences a :TimeSpan ;
-    :endDate "2023-02-19"^^xsd:date ;
-    :startDate "2023-02-17"^^xsd:date .
+    :endDate "2023-02-22"^^xsd:date ;
+    :startDate "2023-02-15"^^xsd:date .
 
 :timespanieee_international_electric_machines_and_drives_conference_2003_iemdc03 a :TimeSpan ;
-    :endDate "2003-04-10"^^xsd:date ;
-    :startDate "2003-04-05"^^xsd:date .
+    :endDate "2003-08-10"^^xsd:date ;
+    :startDate "2003-08-09"^^xsd:date .
 
 :timespaniop_conference_series_earth_and_environmental_science a :TimeSpan ;
-    :endDate "2022-08-18"^^xsd:date ;
-    :startDate "2022-08-12"^^xsd:date .
+    :endDate "2022-09-19"^^xsd:date ;
+    :startDate "2022-09-16"^^xsd:date .
 
 :timespanitm_web_of_conferences a :TimeSpan ;
-    :endDate "2022-12-24"^^xsd:date ;
-    :startDate "2022-12-20"^^xsd:date .
+    :endDate "2022-02-08"^^xsd:date ;
+    :startDate "2022-02-04"^^xsd:date .
 
 :timespanjournal_of_physics_conference_series a :TimeSpan ;
-    :endDate "2022-05-24"^^xsd:date ;
-    :startDate "2022-05-21"^^xsd:date .
+    :endDate "2022-02-04"^^xsd:date ;
+    :startDate "2022-02-01"^^xsd:date .
 
 :timespanproceedings_2001_icra_ieee_international_conference_on_robotics_and_automation_cat_no_01ch37164 a :TimeSpan ;
-    :endDate "2001-04-13"^^xsd:date ;
-    :startDate "2001-04-06"^^xsd:date .
+    :endDate "2001-04-05"^^xsd:date ;
+    :startDate "2001-04-01"^^xsd:date .
 
 :author100478783 a :Author,
         :Reviewer ;
