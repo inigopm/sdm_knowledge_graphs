@@ -1,0 +1,25 @@
+Statistic,Value
+Num. of classes,13
+Num. of object properties,12
+Num. of datatype properties,4
+Num. of authors,5432
+Num. of papers,2000
+Num. of conferences,30
+Num. of conference editions,28
+Num. of journals,426
+Num. of journal volumes,158
+Num. of cities,1
+Num. of topics,30
+Num. of reviews,6000
+Total Num. of triples,64983
+Num. of 'writes' triples,5434
+Num. of 'correspondingAuthor' triples,1951
+Num. of 'hasEdition' triples,30
+Num. of 'publishedIn' triples,583
+Num. of 'hasKeyword' triples,3572
+Num. of 'cites' triples,6000
+Num. of 'heldInCity' triples,28
+Num. of 'heldDuring' triples,28
+Num. of 'hasReview' triples,6000
+Num. of 'reviewer' triples,6000
+Num. of 'reviewsPaper' triples,6000
