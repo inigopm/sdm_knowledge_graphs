@@ -1,0 +1,116 @@
+@prefix : <http://example.org/research#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Agent a rdfs:Class .
+
+:Author a rdfs:Class ;
+    rdfs:subClassOf :Agent .
+
+:City a rdfs:Class .
+
+:Conference a rdfs:Class .
+
+:ConferenceEdition a rdfs:Class .
+
+:Journal a rdfs:Class .
+
+:JournalVolume a rdfs:Class ;
+    rdfs:subClassOf :PublicationVenue .
+
+:Paper a rdfs:Class .
+
+:Proceeding a rdfs:Class ;
+    rdfs:subClassOf :PublicationVenue .
+
+:PublicationVenue a rdfs:Class .
+
+:Review a rdfs:Class .
+
+:Reviewer a rdfs:Class ;
+    rdfs:subClassOf :Author .
+
+:TimeSpan a rdfs:Class .
+
+:Topic a rdfs:Class .
+
+:Workshop a rdfs:Class ;
+    rdfs:subClassOf :Conference .
+
+:abstract a rdf:Property ;
+    rdfs:domain :Paper ;
+    rdfs:range xsd:string .
+
+:cites a rdf:Property ;
+    rdfs:domain :Paper ;
+    rdfs:range :Paper .
+
+:correspondingAuthor a rdf:Property ;
+    rdfs:domain :Author ;
+    rdfs:range :Paper ;
+    rdfs:subPropertyOf :writes .
+
+:endDate a rdf:Property ;
+    rdfs:domain :TimeSpan ;
+    rdfs:range xsd:date .
+
+:hasEdition a rdf:Property ;
+    rdfs:domain :Conference ;
+    rdfs:range :ConferenceEdition .
+
+:hasKeyword a rdf:Property ;
+    rdfs:domain :Paper ;
+    rdfs:range :Topic .
+
+:hasVolume a rdf:Property ;
+    rdfs:domain :Journal ;
+    rdfs:range :JournalVolume .
+
+:heldDuring a rdf:Property ;
+    rdfs:domain :ConferenceEdition ;
+    rdfs:range :TimeSpan .
+
+:heldInCity a rdf:Property ;
+    rdfs:domain :ConferenceEdition ;
+    rdfs:range :City .
+
+:proceedingOf a rdf:Property ;
+    rdfs:domain :ConferenceEdition ;
+    rdfs:range :Proceeding .
+
+:publishedIn a rdf:Property ;
+    rdfs:domain :Paper ;
+    rdfs:range :PublicationVenue .
+
+:reviewer a rdf:Property ;
+    rdfs:domain :Review ;
+    rdfs:range :Reviewer .
+
+:reviewsPaper a rdf:Property ;
+    rdfs:domain :Reviewer ;
+    rdfs:range :Paper ;
+    rdfs:subPropertyOf :hasReview .
+
+:startDate a rdf:Property ;
+    rdfs:domain :TimeSpan ;
+    rdfs:range xsd:date .
+
+:title a rdf:Property ;
+    rdfs:range xsd:string .
+
+:volumeOf a rdf:Property ;
+    rdfs:domain :JournalVolume ;
+    rdfs:range :Journal .
+
+:year a rdf:Property ;
+    rdfs:range xsd:gYear .
+
+:hasReview a rdf:Property ;
+    rdfs:domain :Paper ;
+    rdfs:range :Review .
+
+:writes a rdf:Property ;
+    rdfs:domain :Author ;
+    rdfs:range :Paper .
+

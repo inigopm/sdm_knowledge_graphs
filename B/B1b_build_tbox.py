@@ -81,5 +81,5 @@ dtprop(EX.startDate, rng=XSD.date, dom=EX.TimeSpan)
 dtprop(EX.endDate,   rng=XSD.date, dom=EX.TimeSpan)
 
 # --------------------------------------------------------------------------- #
-g.serialize("research_publications_tbox.ttl")
+g.serialize("B/research_publications_tbox.ttl")
 print("TBOX serialised with", len(g), "triples.")
