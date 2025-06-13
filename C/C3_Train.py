@@ -7,10 +7,10 @@ import json, pathlib, itertools, datetime, torch
 from pykeen.pipeline import pipeline
 from pykeen.triples import TriplesFactory
 
-ROOT = pathlib.Path("experiments")
+ROOT = pathlib.Path("C/C3_experiments")
 ROOT.mkdir(exist_ok=True)
 
-KG_FILE = "B2_research_publications_abox.tsv"
+KG_FILE = "B/B2_research_publications_abox.tsv"
 tf = TriplesFactory.from_path(KG_FILE)
 train, test = tf.split()          # stratified split
 
@@ -79,6 +79,9 @@ def run_one(model_name, emb_dim, negs):
     (out_dir / "metrics.json").write_text(
         json.dumps(result.metric_results.to_dict(), indent=2))
     result.save_to_directory(out_dir)
+    # Save full model for reuse
+    torch.save(result.model, out_dir / 'trained_model.pkl')
+
 
 for m, d, n in itertools.product(MODELS, EMB_DIMS, NEGS):
     run_one(m, d, n)
