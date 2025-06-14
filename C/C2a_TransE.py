@@ -4,7 +4,7 @@ from pykeen.triples import TriplesFactory
 from sklearn.metrics.pairwise import euclidean_distances
 
 # --- load trained TransE model and triples -----------------
-save_dir = Path('KGE_B2_research_publications_model1')
+save_dir = Path('C/KGE_B2_research_publications_model1')
 model = torch.load(save_dir / 'trained_model.pkl', weights_only=False)
 tf = TriplesFactory.from_path_binary(save_dir / 'training_triples')
 
