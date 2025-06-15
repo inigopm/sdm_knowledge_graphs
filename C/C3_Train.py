@@ -10,7 +10,7 @@ from pykeen.triples import TriplesFactory
 ROOT = pathlib.Path("C/C3_experiments")
 ROOT.mkdir(exist_ok=True)
 
-KG_FILE = "B/B2_research_publications_abox.tsv"
+KG_FILE = "C/C_filtered_data.tsv"
 tf = TriplesFactory.from_path(KG_FILE)
 train, test = tf.split()          # stratified split
 
